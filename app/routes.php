@@ -10,12 +10,71 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-
+/*
 Route::get('/', function()
 {
 	return View::make('hello');
 });
+ * 
+ */
 
-Route::get('hello', function() {
+
+Route::get('first', function()
+{
+    return Redirect::to('second');
+});
+
+Route::get('second', function()
+{
+    return 'Second route.';
+});
+
+Route::get('hello', function() 
+{
     return 'Wyświetlany tekst';
+});
+
+Route::get('custom/response', function()
+{
+     $response = Response::make('***some bold text***', 200);
+    $response->headers->set('Content-Type', 'text/x-markdown');
+    return $response;
+});
+
+Route::get('our/response', function()
+{
+    $response = Response::make('Bond, James Bond.', 200);
+    $response->setTtl(60);
+    return $response;
+});
+
+Route::get('markdown/response', function()
+{
+    $data = array('iron', 'man', 'rocks');
+    return Response::json($data);
+});
+/*
+Route::get('file/download', function()
+{
+    $file = 'konfiguracja.txt';
+    return Response::download($file, 418, array('iron', 'man'));
+});
+ */
+
+Route::get('simple', 'ArticleController@showSingle');
+
+Route::get('example', function()
+{
+    return View::make('example');
+});
+
+
+Route::get('/przyklad', function()
+{
+    return View::make('example1');
+});
+
+Route::get('/moj', function()
+{
+    return View::make('home');
 });
