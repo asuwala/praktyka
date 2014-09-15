@@ -11,6 +11,7 @@ class HomeController extends BaseController {
 
     public function home() {
         $categories = Category::all();
+
         $kb_category = Category::where('name','=','Baza wiedzy')->first();
         $ex_category = Category::where('name','=','Ćwiczenia')->first();
         
