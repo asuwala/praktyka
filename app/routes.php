@@ -16,6 +16,7 @@ Route::controller('auth', 'AuthController');
 
 //Route::get('home/test', 'HomeController@home');
 Route::get('home', array('as' => 'home', 'uses' => 'HomeController@home'));
+Route::get('home/subcategory/{subcategoryId}/articles', array('as' => 'showArticlesList', 'uses' => 'HomeController@showArticlesList'));
 //Route::get('auth/register', 'AuthController@getRegister');
 //Route::post('auth/register', 'AuthController@postRegister');
 //Route::get('auth/login', 'AuthController@getLogin');

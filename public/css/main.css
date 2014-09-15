@@ -48,11 +48,49 @@ a.disabled {
 }
 
 .menu-category {
-    font-size: 16px;
+    font-size: 14px;
+    background-color: #F9F9F9;
 }
 
 .menu-subcategory {
     font-size: 12px;
+}
+
+.home-article-content {
+    border: 1px solid #DDD;
+    border-top-width: 1px;
+    border-right-width-value: 1px;
+    border-right-width-ltr-source: physical;
+    border-right-width-rtl-source: physical;
+    border-bottom-width: 1px;
+    border-left-width-value: 1px;
+    border-left-width-ltr-source: physical;
+    border-left-width-rtl-source: physical;
+    border-top-style: solid;
+    border-right-style-value: solid;
+    border-right-style-ltr-source: physical;
+    border-right-style-rtl-source: physical;
+    border-bottom-style: solid;
+    border-left-style-value: solid;
+    border-left-style-ltr-source: physical;
+    border-left-style-rtl-source: physical;
+    border-top-color: #DDD;
+    border-right-color-value: #DDD;
+    border-right-color-ltr-source: physical;
+    border-right-color-rtl-source: physical;
+    border-bottom-color: #DDD;
+    border-left-color-value: #DDD;
+    border-left-color-ltr-source: physical;
+    border-left-color-rtl-source: physical;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image-source: none;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-width: 1 1 1 1;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
 }
 
 

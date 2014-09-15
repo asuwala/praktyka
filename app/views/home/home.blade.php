@@ -19,14 +19,14 @@
     <a id="menu-category-kb" class="list-group-item menu-category disabled" onclick="showKbMenu();">Baza wiedzy</a>
     <div id="menu-kb-subcategories" style="display:none">
         @foreach ($kbCategory->subcategories as $subc)
-            <a href='javascript:;' class="list-group-item menu-subcategory">{{$subc->name}}</a>
+            <a href="{{ URL::to('/') }}/home/subcategory/{{$subc->id}}/articles" class="list-group-item menu-subcategory">{{$subc->name}}</a>
         @endforeach
     </div>
     @if(Auth::check())
     <a id="menu-category-ex" class="list-group-item menu-category disabled" onclick="showExMenu();">Ćwiczenia</a>
     <div id="menu-ex-subcategories" style="display:none">
         @foreach ($exCategory->subcategories as $subc)
-            <a href="" class="list-group-item menu-subcategory">{{$subc->name}}</a>
+            <a href="{{ URL::to('/') }}/home/subcategory/{{$subc->id}}/articles" class="list-group-item menu-subcategory">{{$subc->name}}</a>
         @endforeach
     </div>
         

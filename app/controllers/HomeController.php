@@ -7,7 +7,7 @@ class HomeController extends BaseController {
      *
      * @return Response
      */
-
+    
 
     public function home() {
         $categories = Category::all();
@@ -24,7 +24,7 @@ class HomeController extends BaseController {
             $subcategory = Subcategory::find($article->subcategory_id);
             $category = Category::find($subcategory->category_id);
 
-            return View::make('home')->with(array('flg' => 1,
+            return View::make('home.home')->with(array('flg' => 1,
                 'article' => $article,
                 'category' => $category,
                 'subcategory' => $subcategory,
@@ -38,9 +38,27 @@ class HomeController extends BaseController {
         //$article = DB::table('articles')->first();
 //data = date("d-m-Y", strtotime(date.now()));
        
-            return View::make('home')->with(array('flg' => 0,
+            return View::make('home.home')->with(array('flg' => 0,
                 'categories' => $categories));
         }
+    }
+    
+    
+    public function showArticlesList($subcategoryId) {
+        if(Session::has('chosen_subcategory')) {
+            Session::forget('chosen_subcategory');
+        }
+        Session::put('chosen_subcategory', $subcategoryId);
+        
+        $subcategory = Subcategory::find($subcategoryId);
+        $articles = $subcategory->articles;
+        $kb_category = Category::where('name','=','Baza wiedzy')->first();
+        $ex_category = Category::where('name','=','Ćwiczenia')->first();
+            
+        return View::make('home.show_articles_list')->with(array(
+            'articles' => $articles,
+            'kbCategory' => $kb_category,
+            'exCategory' => $ex_category,));
     }
 
 }

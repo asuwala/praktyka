@@ -39,6 +39,14 @@ function showExMenu() {
 
 
 
+
+
+
+
+
+
+
+
 function getNewestArticle() {
     
     var url = window.location.origin + "/articles/get-newest";
