@@ -57,6 +57,3 @@ Route::get('contact', function() {
             return View::make('contact');
         });
 
-Route::get('hello', function() {
-            return View::make('hello');
-        });
