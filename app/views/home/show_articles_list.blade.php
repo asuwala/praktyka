@@ -1,4 +1,4 @@
-@extends('layouts.base')
+@extends('layouts.home')
 
 @section('head')
 <!-- Place inside the <head> of your HTML -->
@@ -7,42 +7,9 @@
     var kbId = "{{$kbCategory->id}}";
     var exId = "{{$exCategory->id}}";
 </script>
-<script type="text/javascript" src="{{ asset('js/home.js') }}"></script>
 @stop
 
-@section('menu-content')
-<div id="home-page-menu">
-    <div id="menu-header" class="menu-header-title">
-    <a class="list-group-item active disabled" onclick="hideMenu();">Baza artykułów</a>
-    </div>
-    
-    <a id="menu-category-kb" class="list-group-item menu-category disabled" onclick="showKbMenu();">Baza wiedzy</a>
-    <div id="menu-kb-subcategories" style="display:none">
-        @foreach ($kbCategory->subcategories as $subc)
-            <a href=" {{ URL::to('/') }}/home/subcategory/{{$subc->id}}/articles" class="list-group-item menu-subcategory">{{$subc->name}}</a>
-            @if($subc->id == Session::get('chosen_subcategory'))
-                <script type="text/javascript">
-                    $('#menu-kb-subcategories').show();
-                </script>
-            @endif
-        @endforeach
-    </div>
-    @if(Auth::check())
-    <a id="menu-category-ex" class="list-group-item menu-category disabled" onclick="showExMenu();">Ćwiczenia</a>
-    <div id="menu-ex-subcategories" style="display:none">
-        @foreach ($exCategory->subcategories as $subc)
-            <a href="{{ URL::to('/') }}/home/subcategory/{{$subc->id}}/articles" class="list-group-item menu-subcategory">{{$subc->name}}</a>
-            @if($subc->id == Session::get('chosen_subcategory'))
-                <script type="text/javascript">
-                    $('#menu-ex-subcategories').show();
-                </script>
-            @endif
-        @endforeach
-    </div>
-        
-    @endif
-</div>
-@stop
+
 
 @section('content')
     @foreach($articles as $article)
@@ -55,7 +22,7 @@
             <h3 class="blog-post-title">{{ $article->title }}</h3>
             
 
-            <p class="blog-post-meta article-category">Kategoria: {{ $article->subcategory->name }} -> {{ $article->subcategory->category->name }}</p>
+            <p class="blog-post-meta article-category">Kategoria: {{ $category->name }} -> {{ $subcategory->name }}</p>
             <hr>
             <div class="article-content">
             {{ $article->contents }}
@@ -68,6 +35,7 @@
           </div><!-- /.blog-post -->
        </div>
    </div>
+    <br>
     
     @endforeach
 @stop

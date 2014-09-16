@@ -39,6 +39,14 @@ class Subcategory extends Eloquent {
     {
         return $this->hasMany('Article');
     }
+    
+    /*
+     * Zwraca posortowaną liste artykułów przypisanych do podkategorii
+     */
+    public function descArticles()
+    {
+        return $this->hasMany('Article')->orderBy('created_at');
+    }
 }
 
 ?>

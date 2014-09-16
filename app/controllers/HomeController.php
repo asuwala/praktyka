@@ -10,6 +10,9 @@ class HomeController extends BaseController {
     
 
     public function home() {
+        if(Session::has('chosen_subcategory')) {
+            Session::forget('chosen_subcategory');
+        }
         $categories = Category::all();
 
         $kb_category = Category::where('name','=','Baza wiedzy')->first();
@@ -25,7 +28,7 @@ class HomeController extends BaseController {
             $subcategory = Subcategory::find($article->subcategory_id);
             $category = Category::find($subcategory->category_id);
 
-            return View::make('home.home')->with(array('flg' => 1,
+            return View::make('home.home_page')->with(array('flg' => 1,
                 'article' => $article,
                 'category' => $category,
                 'subcategory' => $subcategory,
@@ -39,8 +42,10 @@ class HomeController extends BaseController {
         //$article = DB::table('articles')->first();
 //data = date("d-m-Y", strtotime(date.now()));
        
-            return View::make('home.home')->with(array('flg' => 0,
-                'categories' => $categories));
+            return View::make('home.home_page')->with(array('flg' => 0,
+                'categories' => $categories,
+                'kbCategory' => $kb_category,
+                'exCategory' => $ex_category));
         }
     }
     
@@ -52,14 +57,19 @@ class HomeController extends BaseController {
         Session::put('chosen_subcategory', $subcategoryId);
         
         $subcategory = Subcategory::find($subcategoryId);
-        $articles = $subcategory->articles;
+        $category = $subcategory->category;
+        //$articles = $subcategory->articles;
+        $articles = DB::table('articles')->where('subcategory_id', '=', $subcategory->id)->orderBy('created_at', 'desc')->get();
+        //$articles = $subcategory->descArticles();
         $kb_category = Category::where('name','=','Baza wiedzy')->first();
         $ex_category = Category::where('name','=','Ćwiczenia')->first();
             
         return View::make('home.show_articles_list')->with(array(
             'articles' => $articles,
             'kbCategory' => $kb_category,
-            'exCategory' => $ex_category,));
+            'exCategory' => $ex_category,
+            'category' => $category,
+            'subcategory' => $subcategory));
     }
 
 }

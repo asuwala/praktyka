@@ -129,7 +129,8 @@
         <div class="btn-group">
             <button type="submit" class="btn btn-primary">Zapisz</button>
         </div>
-        <a class="btn btn-primary" role="button" href="{{ URL::to('/') }}/articles/manage-panel">Anuluj</a>
+    <!--    <a class="btn btn-primary" role="button" href="{{ URL::to('/') }}/articles/manage-panel">Anuluj</a> -->
+    <a class="btn btn-primary" role="button" onclick="history.go(-1);">Anuluj</a>
 
     </div>
 
