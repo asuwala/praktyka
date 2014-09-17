@@ -31,9 +31,10 @@ $opts = array(
 	'roots' => array(
 		array(
 			'driver'        => 'LocalFileSystem',   // driver for accessing file system (REQUIRED)
-			//'path'          => '../files/',         // path to files (REQUIRED)
-			'URL'           => dirname($_SERVER['PHP_SELF']) . '/../files/', // URL to files (REQUIRED)
-                        'path'          => '../files/',         // path to files (REQUIRED)
+			'path'          => '../files/',         // path to files (REQUIRED)
+			//'URL'           => dirname($_SERVER['PHP_SELF']) . '/../files/', // URL to files (REQUIRED)
+                        'URL'           => 'http://127.0.0.2/plugins/elfinder/files/',
+                        //'path'          => 'http://127.0.0.2/plugins/elfinder/files/',         // path to files (REQUIRED)
 			//'URL'           => 'plugins/elfinder/files/', // URL to files (REQUIRED)
                         //'tmbUrl'        => $_SERVER['SERVER_ADDR'].'/plugins/elfinder/files/.tmb/',
 			'accessControl' => 'access'             // disable and hide dot starting files (OPTIONAL)

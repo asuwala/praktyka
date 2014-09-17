@@ -63,8 +63,9 @@ class HomeController extends BaseController {
         //$articles = $subcategory->descArticles();
         $kb_category = Category::where('name','=','Baza wiedzy')->first();
         $ex_category = Category::where('name','=','Ćwiczenia')->first();
-            
+        $flg = DB::table('articles')->where('subcategory_id', '=', $subcategory->id)->count();    
         return View::make('home.show_articles_list')->with(array(
+            'flg' => $flg,
             'articles' => $articles,
             'kbCategory' => $kb_category,
             'exCategory' => $ex_category,

@@ -21,7 +21,7 @@
             "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
             "save table contextmenu directionality emoticons template paste textcolor"
         ],
-        content_css: "{{ asset('plugins/bootstrap/css/bootstrap.css') }}",
+        content_css: "{{ asset('css/bootstrap.min.css') }}",
         toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons",
         style_formats: [
             {title: 'Bold text', inline: 'b'},

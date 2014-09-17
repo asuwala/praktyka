@@ -9,11 +9,9 @@
 
         <title>Praktyka</title>
 
-
+        <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/blog.css') }}" />
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
         <!--
         {{ HTML::style('plugins/bootstrap/css/bootstrap.css'); }}
         {{ HTML::style('css/main.css'); }}
@@ -21,12 +19,10 @@
         <script type="text/javascript" src="{{ asset('js/ui-bootstrap-tpls-0.11.0.js') }}" async></script>
         -->
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
-        <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <!--<script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script> -->
-       <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="{{ asset('js/apps.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
       <!--  <script type="text/javascript" src="{{ asset('js/articles.js') }}"></script> -->
         <!-- Place inside the <head> of your HTML -->
 

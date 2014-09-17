@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-<div class="panel panel-primary">
+<div class="panel panel-primary panel">
         <div class="panel-heading">
         <h3 class="panel-title">Logowanie</h3>
     </div>

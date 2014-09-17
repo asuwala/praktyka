@@ -7,6 +7,8 @@ function elFinderBrowser (field_name, url, type, win) {
     resizable: 'yes'
   }, {
     setUrl: function (url) {
+      //console.log('in setUrl: ' + url);
+      
       win.document.getElementById(field_name).value = url;
     }
   });
